@@ -22,6 +22,7 @@ const divJugadorCartas = document.querySelector("#jugador-cartas");
 const divComputadoraCartas = document.querySelector("#computadora-cartas");
 const titulo = document.querySelector(".titulo");
 const crearDeck = () => {
+  deck = [];
   for (let i = 2; i <= 10; i++) {
     for (let tipo of tipos) {
       deck.push(i + tipo);
@@ -106,7 +107,11 @@ btnPedir.addEventListener("click", () => {
     btnPedir.disabled = true;
     btnDetener.disabled = true;
     if (turnoComputadora(puntos_jugador)) {
-      titulo.innerText = "Empato la computadora ojetuda";
+      if(puntos_computadora===puntos_jugador){
+      titulo.innerText = "Empato la computadora ojetuda";}
+      else {
+titulo.innerText = "Ganó la compu";
+      }
     } else {
       titulo.innerText = "Ganaste!!";
     }
@@ -124,6 +129,7 @@ btnDetener.addEventListener("click", () => {
 });
 
 btnNuevo.addEventListener("click", () => {
+  crearDeck();
   puntos_computadora = 0;
   puntos_jugador = 0;
   puntosHTML[0].innerText = 0;
