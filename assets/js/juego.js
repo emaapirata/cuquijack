@@ -121,11 +121,15 @@ titulo.innerText = "Ganó la compu";
 btnDetener.addEventListener("click", () => {
   btnDetener.disabled = true;
   btnPedir.disabled = true;
-  if (turnoComputadora(puntos_jugador)) {
-    titulo.innerText = "Empato la computadora ojetuda";
-  } else {
-    titulo.innerText = "Ganaste!!";
-  }
+    if (turnoComputadora(puntos_jugador)) {
+      if(puntos_computadora===puntos_jugador){
+      titulo.innerText = "Empato la computadora ojetuda";}
+      else {
+titulo.innerText = "Ganó la compu";
+      }
+    } else {
+      titulo.innerText = "Ganaste!!";
+    }
 });
 
 btnNuevo.addEventListener("click", () => {
